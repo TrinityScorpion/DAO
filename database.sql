@@ -11,6 +11,9 @@ CREATE TABLE users(
     password varchar(60) NOT NULL
 );
 
+INSERT INTO users(username, email, password) VALUES ('Maniek', 'maniek@lgchem.com', 'haslo');
+select *
+from users;
 
 
 
