@@ -13,7 +13,10 @@ CREATE TABLE users(
 
 INSERT INTO users(username, email, password) VALUES ('Maniek', 'maniek@lgchem.com', 'haslo');
 select *
-from users where id=2;
+from users;
+
+alter table users auto_increment = 0;
+
 
 
 

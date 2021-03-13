@@ -10,11 +10,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         Connection connection = DbUtil.connect();
         Scanner optionScanner = new Scanner(System.in);
-        User user = new User("uzytkownik", "mailuzytkownika@fsf", "fff");
-        User newUser = new UserDAO();
         UserDAO userDao = new UserDAO();
-        UserDAO userDao1 = new UserDAO();
-
         login(optionScanner);
         SettingsMenu();
         while (true) {
@@ -24,14 +20,7 @@ public class Main {
                     SettingsMenu();
                     break;
                 case "add":
-                    System.out.println("Adding new User. User name:");
-                    String name = optionScanner.nextLine();
-                    System.out.println("User email:");
-                    String email = optionScanner.nextLine();
-                    System.out.println("User password:");
-                    String password = optionScanner.nextLine();
-                    userDao.create(new User(name,email, password));
-                    System.out.println("===========Done============");
+                    addToDatabase(optionScanner, userDao);
                     break;
                 case "remove":
                     System.out.println("Select row number to remove:");
@@ -88,6 +77,17 @@ public class Main {
         }
 
 
+    }
+
+    private static void addToDatabase(Scanner optionScanner, UserDAO userDao) {
+        System.out.println("Adding new User. User name:");
+        String name = optionScanner.nextLine();
+        System.out.println("User email:");
+        String email = optionScanner.nextLine();
+        System.out.println("User password:");
+        String password = optionScanner.nextLine();
+        userDao.create(new User(name,email, password));
+        System.out.println("===========Done============");
     }
 
     private static void SettingsMenu() {
