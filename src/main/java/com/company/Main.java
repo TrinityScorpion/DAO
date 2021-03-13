@@ -15,19 +15,7 @@ public class Main {
         UserDAO userDao = new UserDAO();
         UserDAO userDao1 = new UserDAO();
 
-//        newUser.setUserName("maniusxxx");
-//        newUser.setEmail("manifYFVHGdsk@lgchem.com");
-//        newUser.setPassword("dfdssdff");
-//
-//        userDao.setUserName("userdao");
-//        userDao.setEmail("userdao@wp.pl");
-//        userDao.setPassword("dadasdadasdasd");
-//        userDao1.setUserName("userdao12dgsdgddf");
-//        userDao1.setEmail("userdao12@sfdsfdswp.pl");
-//        userDao1.setPassword("sfsdfsdfsdfdsfdsfsfsfsfdf");
-        // userDao.update(user);
-
-        //login(optionScanner);
+        login(optionScanner);
         SettingsMenu();
         while (true) {
             String line = optionScanner.nextLine();
@@ -94,7 +82,7 @@ public class Main {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Choose correct option");
+
                     break;
             }
         }
@@ -105,12 +93,13 @@ public class Main {
     private static void SettingsMenu() {
         System.out.println("=========================");
         System.out.println("Choose option:");
-        System.out.println("Add User");
-        System.out.println("Remove User");
-        System.out.println("Update User");
-        System.out.println("Read User");
-        System.out.println("Show All Database");
-        System.out.println("quit");
+        System.out.println("Add User - 'add'");
+        System.out.println("Remove User - 'remove'");
+        System.out.println("Update User - 'update'");
+        System.out.println("Read User - 'read'");
+        System.out.println("Show All Database - 'show'");
+        System.out.println("Show options - 'menu'");
+        System.out.println("End program - 'quit'");
         System.out.println("=========================");
     }
 
