@@ -94,6 +94,19 @@ public class UserDAO extends User {
         }
         return null;
     }
+    public User readToUpdate(int userId) {
+        try (Connection conn = DbUtil.connect()) {
+            PreparedStatement stmt = conn.prepareStatement(READ_USER_QUERY);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new User(rs.getInt(1)+rs.getString(2), rs.getString(3), rs.getString(4));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     public static String hashPassword(String password) {

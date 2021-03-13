@@ -55,17 +55,22 @@ public class Main {
                     }
                     break;
                 case "update":
+                    Scanner scanner = new Scanner(System.in);
                     System.out.println("Select row to update");
-                    int nr = optionScanner.nextInt();
-                    User userToUpdate = userDao.read(nr);
+                    int nr = scanner.nextInt();
+
                     System.out.println("Adding new User. User name:");
-                    String name1 = optionScanner.nextLine();
-                    userToUpdate.setUserName(name1);
+                    String name1 = scanner.nextLine();
+
                     System.out.println("User email:");
-                    String email1 = optionScanner.nextLine();
-                    userToUpdate.setEmail(email1);
+                    String email1 = scanner.nextLine();
+
                     System.out.println("User password:");
-                    String password1 = optionScanner.nextLine();
+                    String password1 = scanner.nextLine();
+
+                    User userToUpdate = userDao.readToUpdate(nr);
+                    userToUpdate.setUserName(name1);
+                    userToUpdate.setEmail(email1);
                     userToUpdate.setPassword(password1);
                     userDao.update(userToUpdate);
                     break;
