@@ -61,21 +61,8 @@ public class UserDAO extends User {
             PreparedStatement prepStm = conn.prepareStatement(UPDATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
             prepStm.setString(1, user.getEmail());
             prepStm.setString(2, user.getUserName());
-            prepStm.setString(3, user.getPassword());
+            prepStm.setString(3, hashPassword(user.getPassword()));
             prepStm.setInt(4, user.getId());
-            prepStm.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    public void update(int userId) {
-        try (Connection conn = DbUtil.connect()) {
-
-            PreparedStatement prepStm = conn.prepareStatement(UPDATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
-            prepStm.setString(1, getEmail());
-            prepStm.setString(2, getUserName());
-            prepStm.setString(3, getPassword());
-            prepStm.setInt(4, userId);
             prepStm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -55,7 +55,19 @@ public class Main {
                     }
                     break;
                 case "update":
-
+                    System.out.println("Select row to update");
+                    int nr = optionScanner.nextInt();
+                    User userToUpdate = userDao.read(nr);
+                    System.out.println("Adding new User. User name:");
+                    String name1 = optionScanner.nextLine();
+                    userToUpdate.setUserName(name1);
+                    System.out.println("User email:");
+                    String email1 = optionScanner.nextLine();
+                    userToUpdate.setEmail(email1);
+                    System.out.println("User password:");
+                    String password1 = optionScanner.nextLine();
+                    userToUpdate.setPassword(password1);
+                    userDao.update(userToUpdate);
                     break;
                 case "read":
                     System.out.println("Select row number to read:");
