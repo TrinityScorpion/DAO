@@ -57,11 +57,10 @@ public class UserDAO extends User {
 
     public void update(User user) {
         try (Connection conn = DbUtil.connect()) {
-
             PreparedStatement prepStm = conn.prepareStatement(UPDATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
-            prepStm.setString(1, user.getEmail());
-            prepStm.setString(2, user.getUserName());
-            prepStm.setString(3, hashPassword(user.getPassword()));
+            prepStm.setString(1, user.getUserName());
+            prepStm.setString(2, user.getEmail());
+            prepStm.setString(3, this.hashPassword(user.getPassword()));
             prepStm.setInt(4, user.getId());
             prepStm.executeUpdate();
         } catch (SQLException e) {
@@ -86,8 +85,12 @@ public class UserDAO extends User {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getInt(1)+" "+rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
-                return new User(rs.getString(2), rs.getString(3), rs.getString(4));
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUserName(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                return user;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,7 +103,7 @@ public class UserDAO extends User {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return new User(rs.getInt(1)+rs.getString(2), rs.getString(3), rs.getString(4));
+                System.out.println(rs.getInt(1)+" "+rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
             }
         } catch (SQLException e) {
             e.printStackTrace();

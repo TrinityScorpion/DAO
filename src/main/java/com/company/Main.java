@@ -15,16 +15,16 @@ public class Main {
         UserDAO userDao = new UserDAO();
         UserDAO userDao1 = new UserDAO();
 
-        newUser.setUserName("maniusxxx");
-        newUser.setEmail("manifYFVHGdsk@lgchem.com");
-        newUser.setPassword("dfdssdff");
-
-        userDao.setUserName("userdao");
-        userDao.setEmail("userdao@wp.pl");
-        userDao.setPassword("dadasdadasdasd");
-        userDao1.setUserName("userdao12dgsdgddf");
-        userDao1.setEmail("userdao12@sfdsfdswp.pl");
-        userDao1.setPassword("sfsdfsdfsdfdsfdsfsfsfsfdf");
+//        newUser.setUserName("maniusxxx");
+//        newUser.setEmail("manifYFVHGdsk@lgchem.com");
+//        newUser.setPassword("dfdssdff");
+//
+//        userDao.setUserName("userdao");
+//        userDao.setEmail("userdao@wp.pl");
+//        userDao.setPassword("dadasdadasdasd");
+//        userDao1.setUserName("userdao12dgsdgddf");
+//        userDao1.setEmail("userdao12@sfdsfdswp.pl");
+//        userDao1.setPassword("sfsdfsdfsdfdsfdsfsfsfsfdf");
         // userDao.update(user);
 
         //login(optionScanner);
@@ -43,7 +43,7 @@ public class Main {
                     System.out.println("User password:");
                     String password = optionScanner.nextLine();
                     userDao.create(new User(name,email, password));
-                    System.out.println("Done");
+                    System.out.println("===========Done============");
                     break;
                 case "remove":
                     System.out.println("Select row number to remove:");
@@ -53,6 +53,7 @@ public class Main {
                     } catch (InputMismatchException e) {
                         System.out.println("Exception: " + e.getMessage());
                     }
+                    System.out.println("===========Done============");
                     break;
                 case "update":
                     Scanner scanner = new Scanner(System.in);
@@ -60,31 +61,34 @@ public class Main {
                     int nr = scanner.nextInt();
 
                     System.out.println("Adding new User. User name:");
-                    String name1 = scanner.nextLine();
+                    String name1 = scanner.next();
 
                     System.out.println("User email:");
-                    String email1 = scanner.nextLine();
+                    String email1 = scanner.next();
 
                     System.out.println("User password:");
-                    String password1 = scanner.nextLine();
+                    String password1 = scanner.next();
 
-                    User userToUpdate = userDao.readToUpdate(nr);
+                    User userToUpdate = userDao.read(nr);
                     userToUpdate.setUserName(name1);
                     userToUpdate.setEmail(email1);
                     userToUpdate.setPassword(password1);
                     userDao.update(userToUpdate);
+                    System.out.println("===========Done============");
                     break;
                 case "read":
                     System.out.println("Select row number to read:");
                     try {
                         int rem = optionScanner.nextInt();
-                        userDao.read(rem);
+                        userDao.readToUpdate(rem);
                     } catch (InputMismatchException e) {
                         System.out.println("Exception: " + e.getMessage());
                     }
+                    System.out.println("===========Done============");
                     break;
                 case "show":
                     userDao.findAll();
+                    System.out.println("===========Done============");
                     break;
                 case "quit":
                     System.exit(0);
