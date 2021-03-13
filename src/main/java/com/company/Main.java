@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         Connection connection = DbUtil.connect();
+        User user = new User("uzytkownik", "mailuzytkownika@fsf", "fff");
         User newUser = new UserDAO();
         UserDAO userDao = new UserDAO();
         UserDAO userDao1 = new UserDAO();
@@ -18,11 +19,11 @@ public class Main {
         userDao.setUserName("userdao");
         userDao.setEmail("userdao@wp.pl");
         userDao.setPassword("dadasdadasdasd");
-
-        userDao1.setUserName("userdao1dgsdgddf");
-        userDao1.setEmail("userdao1@sfdsfdswp.pl");
+        userDao1.setUserName("userdao12dgsdgddf");
+        userDao1.setEmail("userdao12@sfdsfdswp.pl");
         userDao1.setPassword("sfsdfsdfsdfdsfdsfsfsfsfdf");
-        userDao.update(userDao1);
+       // userDao.update(user);
+        userDao.findAll();
         //userDao.read(2);
         //userDao.create(userDao1);
         //System.out.println(userDao.read(21));
