@@ -13,7 +13,7 @@ CREATE TABLE users(
 
 INSERT INTO users(username, email, password) VALUES ('Maniek', 'maniek@lgchem.com', 'haslo');
 select *
-from users;
+from users where id=2;
 
 
 
