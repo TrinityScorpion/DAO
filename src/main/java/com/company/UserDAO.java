@@ -26,7 +26,7 @@ public class UserDAO extends User {
             while (rs.next()) {
                 userLIst = Arrays.copyOf(userLIst, userLIst.length + 1);
                 userLIst[userLIst.length-1] = new User(rs.getString(2), rs.getString(3), rs.getString(4));
-                System.out.println(rs.getString(2)+" " + rs.getString(3) +" "+ rs.getString(4));
+                System.out.println(rs.getInt(1)+" "+rs.getString(2)+" " + rs.getString(3) +" "+ rs.getString(4));
             }
             return userLIst;
         } catch (SQLException e) {
@@ -62,22 +62,22 @@ public class UserDAO extends User {
             prepStm.setString(1, user.getEmail());
             prepStm.setString(2, user.getUserName());
             prepStm.setString(3, user.getPassword());
-            prepStm.setInt(4, 16);
+            prepStm.setInt(4, user.getId());
             prepStm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-    public void printData() {
+    public void update(int userId) {
         try (Connection conn = DbUtil.connect()) {
-            PreparedStatement statement = conn.prepareStatement(SHOW_ALL);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString(resultSet.getString(1)
-                        + resultSet.getString(2) + resultSet.getString(3)));
-            }
-        } catch (Exception e) {
+
+            PreparedStatement prepStm = conn.prepareStatement(UPDATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
+            prepStm.setString(1, getEmail());
+            prepStm.setString(2, getUserName());
+            prepStm.setString(3, getPassword());
+            prepStm.setInt(4, userId);
+            prepStm.executeUpdate();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -99,7 +99,7 @@ public class UserDAO extends User {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
+                System.out.println(rs.getInt(1)+" "+rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
                 return new User(rs.getString(2), rs.getString(3), rs.getString(4));
             }
         } catch (SQLException e) {
