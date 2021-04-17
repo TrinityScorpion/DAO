@@ -64,7 +64,7 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">UsersCRUD</h1>
-                    <a href="/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    <a href="/user/list" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                             class="fas fa-download fa-sm text-white-50"></i> Lista Użytkowników</a>
                 </div>
                 <div class="card shadow mb-4">
@@ -72,22 +72,23 @@
                         <h6 class="m-0 font-weight-bold text-primary">Dodaj użytkownika</h6>
                     </div>
                     <div class="card-body">
-                        <form action="" method="POST">
-                            <div class="form-group">
-                                <label>Nazwa</label>
-                                <input type="text" class="form-control" name="userName" placeholder="Nazwa Użytkownika">
-                            </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" name="userEmail" placeholder="Email użytkownika">
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="text" class="form-control" name="userPassword"
-                                       placeholder="Hasło użytkownika">
-                                <button type="submit" class="btn btn-primary mb-2">Dodaj</button>
-                            </div>
-                        </form>
+                        <div class="table-responsive">
+                            <!-- table -->
+                            <table class="table">
+                                <tr>
+                                    <th>Id</th>
+                                    <td>${user.id}</td>
+                                </tr>
+                                <tr>
+                                    <th>Nazwa Użytkownika</th>
+                                    <td>${user.userName}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>${user.email}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

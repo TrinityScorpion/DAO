@@ -69,23 +69,23 @@
                 </div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Dodaj użytkownika</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Edycka użytkownika</h6>
                     </div>
                     <div class="card-body">
                         <form action="" method="POST">
                             <div class="form-group">
                                 <label>Nazwa</label>
-                                <input type="text" class="form-control" name="userName" placeholder="Nazwa Użytkownika">
+                                <input type="text" class="form-control" name="userName1" placeholder="Nazwa Użytkownika">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="userEmail" placeholder="Email użytkownika">
+                                <input type="email" class="form-control" name="userEmail1" placeholder="Email użytkownika">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" class="form-control" name="userPassword"
-                                       placeholder="Hasło użytkownika">
-                                <button type="submit" class="btn btn-primary mb-2">Dodaj</button>
+                                <input type="text" class="form-control" name="userPassword1"
+                                       placeholder="Email użytkownika">
+                                <button type="submit" class="btn btn-primary mb-2">Edytuj</button>
                             </div>
                         </form>
                     </div>
