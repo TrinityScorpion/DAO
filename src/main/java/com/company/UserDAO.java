@@ -17,15 +17,16 @@ public class UserDAO extends User {
             "SELECT * FROM users";
 
     public User[] findAll() {
-        User[] userLIst = new User[0];
 
         try (Connection conn = DbUtil.connect();
              PreparedStatement stmt = conn.prepareStatement(SHOW_ALL);
              ResultSet rs = stmt.executeQuery()) {
+             User[] userLIst = new User[0];
 
             while (rs.next()) {
+                User user = new User();
                 userLIst = Arrays.copyOf(userLIst, userLIst.length + 1);
-                userLIst[userLIst.length-1] = new User(rs.getString(2), rs.getString(3), rs.getString(4));
+                userLIst[userLIst.length-1] = new User(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4));
                 System.out.println(rs.getInt(1)+" "+rs.getString(2)+" " + rs.getString(3) +" "+ rs.getString(4));
             }
             return userLIst;

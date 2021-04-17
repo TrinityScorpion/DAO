@@ -60,43 +60,37 @@
             <!-- End of Topbar -->
             <!-- Begin Page Content -->
             <%@ include file="/users/header.jsp" %>
-
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">UsersCRUD</h1>
                     <a href="/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Dodaj Użytkownika</a>
+                            class="fas fa-download fa-sm text-white-50"></i> Lista Użytkowniówk</a>
                 </div>
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Dodaj użytkownika</h6>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <!-- table -->
-                            <table class="table">
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nazwa Użytkownika</th>
-                                    <th>Email</th>
-                                    <th>Akcja</th>
-                                </tr>
-                                <c:forEach items="${users}" var="user">
-                                    <tr>
-                                        <td>${user.id}</td>
-                                        <td>${user.userName}</td>
-                                        <td>${user.email}</td>
-                                        <td>
-                                        </td>
-                                    </tr>
-                                </c:forEach>
-                            </table>
-                        </div>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label>Nazwa</label>
+                                <input type="email" class="form-control" id="userName" placeholder="Nazwa Użytkownika">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" id="userEmail" placeholder="Email użytkownika">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="email" class="form-control" id="userPassword"
+                                       placeholder="Email użytkownika">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Zapisz</button>
+                        </form>
                     </div>
                 </div>
             </div>
-
             <!-- /.container-fluid -->
 
         </div>

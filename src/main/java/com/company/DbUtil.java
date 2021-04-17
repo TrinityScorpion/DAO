@@ -14,8 +14,9 @@ public class DbUtil {
 
     public static Connection connect(String url, String user, String password) {
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection(url, user, password);
-        } catch (SQLException throwables) {
+        } catch (SQLException | ClassNotFoundException throwables) {
             throw new RuntimeException(throwables);
         }
     }

@@ -79,6 +79,7 @@ public class Main {
     }
 
     private static void addToDatabase(Scanner optionScanner, UserDAO userDao) {
+
         System.out.println("Adding new User. User name:");
         String name = optionScanner.nextLine();
         System.out.println("User email:");
