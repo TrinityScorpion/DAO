@@ -3,7 +3,7 @@ package com.company;
 import java.sql.*;
 
 public class DbUtil {
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/dao_db";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/dao_db?serverTimezone=Europe/Warsaw";
     private static final String DB_USER = "root";
     private static final String DB_PASS = "coderslab";
 

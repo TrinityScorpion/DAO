@@ -17,6 +17,10 @@ from users;
 
 alter table users auto_increment = 0;
 
+SHOW GLOBAL VARIABLES LIKE 'time_zone';
+
+
+
 
 
 

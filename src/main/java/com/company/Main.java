@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
+
         Connection connection = DbUtil.connect();
         Scanner optionScanner = new Scanner(System.in);
         UserDAO userDao = new UserDAO();
@@ -75,8 +76,6 @@ public class Main {
                     break;
             }
         }
-
-
     }
 
     private static void addToDatabase(Scanner optionScanner, UserDAO userDao) {
